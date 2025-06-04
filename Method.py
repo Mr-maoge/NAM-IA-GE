@@ -162,8 +162,8 @@ class Model_single_modal(nn.Module):
             inter_effects: reshape from [q*r] matrix 
         '''
         self.coef = nn.Parameter(torch.ones((r*(q+1)+q))/(r*(q+1)+q)) # parameters for selection layers 
-        self.batchnrom = nn.BatchNorm1d(r*(q+1)+q, momentum=0, affine=False, track_running_stats=True)
-        self.batchnrom_out = nn.BatchNorm1d(1, momentum=0, affine=False, track_running_stats=True)
+        self.batchnrom = nn.BatchNorm1d(r*(q+1)+q, momentum=0, affine=False, track_running_stats=False)
+        self.batchnrom_out = nn.BatchNorm1d(1, momentum=0, affine=False, track_running_stats=False)
 
     def forward(self, **tra_X_dic):
         """
